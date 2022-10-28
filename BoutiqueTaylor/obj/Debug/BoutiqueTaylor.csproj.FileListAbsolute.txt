@@ -1,0 +1,15 @@
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\bin\Debug\BoutiqueTaylor.exe.config
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\bin\Debug\BoutiqueTaylor.exe
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\bin\Debug\BoutiqueTaylor.pdb
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.csprojAssemblyReference.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\MainWindow.g.cs
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\App.g.cs
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor_MarkupCompile.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor_MarkupCompile.lref
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\MainWindow.baml
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.g.resources
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.Properties.Resources.resources
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.csproj.GenerateResource.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.exe
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.pdb
