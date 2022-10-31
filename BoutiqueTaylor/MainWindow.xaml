@@ -52,12 +52,12 @@
                                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="GOLD"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="GOLD"/>
+                                <Setter Property="Background" TargetName="border" Value="transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="TRANSPARENT"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="TRANSPARENT"/>
+                                <Setter Property="Background" TargetName="border" Value="transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
@@ -69,12 +69,119 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!--btn burger-->
+        <Style x:Key="BtnShowHide" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="#8D80AD"/>
+            <Setter Property="BorderBrush" Value="#8D80AD"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BtnListStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="transparent"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Item.MouseOver.Background" Color="#1F26A0DA"/>
+        <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da"/>
+        <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA"/>
+        <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA"/>
+        <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA"/>
+        <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA"/>
+        <Style x:Key="BtnListViewItem" TargetType="{x:Type ListViewItem}">
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Padding" Value="4,1"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="transparent"/>
+                                <Setter Property="BorderBrush" TargetName="Bd" Value="transparent"/>
+                            </MultiTrigger>
+                           
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--end btn burger-->
     </Window.Resources>
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid Name="principal"
-              Background="Transparent">
+              Background="WhiteSmoke">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="97*"/>
+                <ColumnDefinition Width="100*"/>
                 <ColumnDefinition Width="903*"/>
             </Grid.ColumnDefinitions>
             <!--Header-->
@@ -83,9 +190,13 @@
                   VerticalAlignment="Top"
                   Background="Transparent" Grid.ColumnSpan="2"
                   >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="0*"/>
+                </Grid.RowDefinitions>
                 <Border 
-                    CornerRadius="10,10,0,0"
-                    Background="#c7a500"/>
+                   
+                    Background="#CAAFB1"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -96,7 +207,7 @@
                     <TextBlock Text="BoutiqueTaylor"
                                FontFamily="/SCS/FONTS/"
                                Grid.Column="0"
-                               Foreground="Black"
+                               Foreground="White"
                                FontSize="16"
                                Margin="20,0,0,0"
                                HorizontalAlignment="Left"
@@ -123,7 +234,9 @@
                             <TextBlock Grid.Column="1"
                                 Text="Cuenta"
                                  VerticalAlignment="Center"
+                                       Foreground="Black"
                                  HorizontalAlignment="Center"
+                                       FontSize="15"
                                   Margin="5,0,0,0"/>
                             <Image
                                 Grid.Column="0"
@@ -159,6 +272,7 @@
                                    Height="15"/>
                             <TextBlock
                                 Text="Info"
+                                Foreground="Black"
                                 FontSize="15"
                                 Grid.Column="1"
                                  HorizontalAlignment="Center"
@@ -180,7 +294,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Margin="0,-2,35,0"
-                       Style="{DynamicResource BTNHEADERSTYLE}">
+                       Style="{DynamicResource BTNHEADERSTYLE}" Click="Minimize">
                         <Image Source="/SCS/IMG/window-minimize-solid.png"
                                Cursor="Hand"/>
 
@@ -198,7 +312,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Margin="0,5,5,0"
-                        Style="{DynamicResource BTNHEADERSTYLE}">
+                        Style="{DynamicResource BTNHEADERSTYLE}" Click="Close">
 
                         <Image Source="/SCS/IMG/xmark-solid.png"
                                Cursor="Hand"/>
@@ -210,21 +324,25 @@
 
             </Grid>
             <!--End Header-->
-            
+
             <!--Section SIDEBAR-->
             <Grid Name="GridMenu"
                   Background="Transparent"
-                  Width="180"
+                  Width="95"
                   HorizontalAlignment="Left"
-                  Margin="0,35,-80,0">
+                  Margin="0,35,0,0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="54*"/>
+                    <RowDefinition Height="511*"/>
+                </Grid.RowDefinitions>
                 <Border
-                    Background="DarkGoldenrod"
-                    CornerRadius="0,0,0,10"
+                    Background="#8D80AD" Grid.RowSpan="2"
+                 
                     />
                 <!--region menu-->
                 <StackPanel
                     Background="Transparent"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top" Grid.RowSpan="2">
                     <!--show hide menu-->
                     <Grid
                         Background="Transparent"
@@ -234,7 +352,13 @@
                         <ToggleButton Name="btnShowHide"
                                       Height="20"
                                       Width="20"
-                                      BorderBrush="Transparent">
+                                      Cursor="Hand"
+                                      BorderBrush="Transparent" 
+                                      Checked="TBShow" 
+                                      Unchecked="TBHide" 
+                                      VerticalAlignment="Bottom" 
+                                      HorizontalAlignment="Left"
+                                      Style="{DynamicResource BtnShowHide}">
                             <ToggleButton.Background>
                                 <ImageBrush ImageSource="/SCS/IMG/bars-solid.png"/>
                             </ToggleButton.Background>
@@ -243,20 +367,182 @@
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
                                     <BeginStoryboard>
                                         <Storyboard Name="HidePanel">
-                                            <DoubleAnimation Storyboard.TargetName="GridMenu"/>
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="200" To="95"
+                                                             Duration="0:0:0:0.5"
+                                                             />
                                         </Storyboard>
-                                        <!--ME QUEDE EN 16:45-->
+
                                     </BeginStoryboard>
                                 </EventTrigger>
+                                <!--end hidden-->
                                 <!--show-->
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard Name="ShowPanel">
+                                            <DoubleAnimation Storyboard.TargetName="GridMenu"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="95" To="200"
+                                                             Duration="0:0:0:0.5"
+                                                             />
+                                        </Storyboard>
+
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <!--end show-->
                             </ToggleButton.Triggers>
                         </ToggleButton>
-                        
-                    </Grid>
 
+                    </Grid>
+                    <!--BTN SIDEBAR BUTTONS -->
+                    <ListView Background="Transparent"
+                              BorderBrush="Transparent"
+                              Margin="0,30,0,0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListViewItem Height="70" Style="{DynamicResource BtnListViewItem}">
+                            <Button Name="BtnInicio"
+                                    Height="70"
+                                    Width="150"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}"
+                                    >
+                                <Grid
+                                    Width="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="20"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Center"
+                                           Source="/SCS/IMG/house-solid.png"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Text="Inicio"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="70" Style="{DynamicResource BtnListViewItem}">
+                            <Button Name="BtnUser"
+                                    Height="70"
+                                    Width="150"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}"
+                                    >
+                                <Grid
+                                    Width="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="20"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Center"
+                                           Source="/SCS/IMG/users-solid.png"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Text="Cuentas"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="70" Style="{DynamicResource BtnListViewItem}">
+                            <Button Name="BtnProductos"
+                                    Height="70"
+                                    Width="150"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}"
+                                    >
+                                <Grid
+                                    Width="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="20"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Center"
+                                           Source="/SCS/IMG/shirt-solid.png"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Text="Stock"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem Height="70" Style="{DynamicResource BtnListViewItem}">
+                            <Button Name="BtnSales"
+                                    Height="70"
+                                    Width="150"
+                                    HorizontalAlignment="Left"
+                                    Cursor="Hand"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}"
+                                    >
+                                <Grid
+                                    Width="150">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Width="20"
+                                           Grid.Column="0"
+                                           HorizontalAlignment="Center"
+                                           Source="/SCS/IMG/shop-solid.png"/>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Text="Locales"
+                                        FontSize="15"
+                                        Foreground="White"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontWeight="SemiBold"/>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                    </ListView>
+
+                    <!-- END BTN SIDEBAR-->
                 </StackPanel>
             </Grid>
             <!-- end Section SIDEBAR-->
+            <!--content area -->
+            <Grid Name="GridContent"
+                  Background="Transparent"
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Right"
+                  Height="565"
+                  Width="800" 
+                  Grid.ColumnSpan="2" 
+                  PreviewMouseLeftButtonDown="PreviewMouseLeftButtonDownBG">
+                <Border
+                    CornerRadius="0,0,0,10"
+                    Background="WhiteSmoke"/>
+               
+            </Grid>
+            <!--end content area -->
         </Grid>
     </Border>
 </Window>

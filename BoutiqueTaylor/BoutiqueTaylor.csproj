@@ -110,5 +110,17 @@
   <ItemGroup>
     <Resource Include="SCS\IMG\bars-solid.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SCS\IMG\users-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SCS\IMG\shirt-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SCS\IMG\shop-solid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SCS\IMG\house-solid.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
