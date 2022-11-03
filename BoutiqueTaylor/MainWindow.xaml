@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BoutiqueTaylor"
+        xmlns:viewmodels="clr-namespace:BoutiqueTaylor.Views"
         mc:Ignorable="d"
         Title="Inicio" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen"
@@ -176,6 +177,10 @@
             </Setter>
         </Style>
         <!--end btn burger-->
+        <DataTemplate x:Name="Users"
+                      DataType="{x:Type viewmodels:Users}">
+            <viewmodels:Users DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid Name="principal"
@@ -417,7 +422,7 @@
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="20"
+                                    <Image Width="30"
                                            Grid.Column="0"
                                            HorizontalAlignment="Center"
                                            Source="/SCS/IMG/house-solid.png"/>
@@ -439,7 +444,7 @@
                                     HorizontalAlignment="Left"
                                     Cursor="Hand"
                                     Background="Transparent"
-                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}"
+                                    BorderBrush="Transparent" Style="{DynamicResource BtnListStyle}" Click="UsersClick"
                                     >
                                 <Grid
                                     Width="150">
@@ -447,7 +452,7 @@
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="20"
+                                    <Image Width="30"
                                            Grid.Column="0"
                                            HorizontalAlignment="Center"
                                            Source="/SCS/IMG/users-solid.png"/>
@@ -477,7 +482,7 @@
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="20"
+                                    <Image Width="30"
                                            Grid.Column="0"
                                            HorizontalAlignment="Center"
                                            Source="/SCS/IMG/shirt-solid.png"/>
@@ -507,7 +512,7 @@
                                         <ColumnDefinition Width="60"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="20"
+                                    <Image Width="30"
                                            Grid.Column="0"
                                            HorizontalAlignment="Center"
                                            Source="/SCS/IMG/shop-solid.png"/>
@@ -540,7 +545,7 @@
                 <Border
                     CornerRadius="0,0,0,10"
                     Background="WhiteSmoke"/>
-               
+                <ContentControl Content="{Binding}"></ContentControl>
             </Grid>
             <!--end content area -->
         </Grid>

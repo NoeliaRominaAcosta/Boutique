@@ -13,3 +13,8 @@ C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTa
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.csproj.CoreCompileInputs.cache
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.exe
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTaylor.pdb
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Views\Users.g.cs
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Views\Users.baml
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Views\CrudUsers.g.cs
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Views\CrudUsers.baml
