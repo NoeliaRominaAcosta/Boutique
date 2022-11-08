@@ -31,6 +31,7 @@ namespace BoutiqueTaylor.Views
         {
             CrudUsers ventana= new CrudUsers();
             FrameUsers.Content = ventana;
+            ventana.create.Visibility = Visibility.Visible;
         }
     }
 }

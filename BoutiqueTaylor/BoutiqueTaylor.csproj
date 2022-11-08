@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Data.SqlXml" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />

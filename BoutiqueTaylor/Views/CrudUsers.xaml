@@ -95,6 +95,8 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--end region cols and rows-->
@@ -121,7 +123,38 @@
                     Foreground="White"
                     Width="100" 
                     Style="{DynamicResource ButtonBack}"
-                    Click="BtnBack_Click"/>
+                    Click="BtnBack_Click"
+                    Visibility="Hidden"/>
+            <Button Name="create"
+                    Content="Crear"
+                    Grid.Row="17"
+                    Grid.Column="5"
+                    Background="#CAAFB1"
+                    Foreground="White"
+                    Width="100"
+                    Visibility="Hidden"
+                    Click="Create_Click"
+                   Style="{DynamicResource ButtonBack}"/>
+            <Button Name="delete"
+                    Content="Eliminar"
+                    Grid.Row="18"
+                    Grid.Column="5"
+                    Background="#CAAFB1"
+                    Foreground="White"
+                    Width="100"
+                   Click="Delete_Click"
+                    Visibility="Hidden"
+                   Style="{DynamicResource ButtonBack}"/>
+            <Button Name="update"
+                    Content="Modificar"
+                    Grid.Row="19"
+                    Grid.Column="5"
+                    Background="#CAAFB1"
+                    Foreground="White"
+                    Width="100"
+                    Visibility="Hidden"
+                    Click="Update_Click"
+                   Style="{DynamicResource ButtonBack}"/>
             <!--end region buttons-->
             <!--content area-->
             <TextBlock Grid.Row="4"
@@ -129,7 +162,7 @@
                        Text="Nombres:"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="4"
+            <TextBox Grid.Row="4"
                        Grid.Column="2"
                        Name="TbNames"
                        Background="White"/>
@@ -138,7 +171,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Text="Apellidos:"/>
-            <TextBlock Grid.Row="6"
+            <TextBox Grid.Row="6"
                        Grid.Column="2"
                        Name="TbLastName"
                         Background="White"/>
@@ -147,7 +180,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Text="Email:"/>
-            <TextBlock Grid.Row="8"
+            <TextBox Grid.Row="8"
                        Grid.Column="2"
                        Name="TbEmail"
                         Background="White"/>
@@ -156,7 +189,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Text="Nacimiento:"/>
-            <TextBlock Grid.Row="10"
+            <TextBox Grid.Row="10"
                        Grid.Column="2"
                        Name="TbBirth"
                         Background="White"/>
@@ -175,20 +208,40 @@
                       Name="cbTypeRol"/>
             <Image Grid.Row="4"
                    Grid.Column="4"
-                   Grid.RowSpan="10"
+                   Grid.RowSpan="9"
                    Grid.ColumnSpan="2"
                    Name="image"
                    Source="/SCS/IMG/avatarPng.png"
                    Margin="0,0,0,5"/>
             <Button Grid.Column="4"
-                    Grid.Row="14"
+                    Grid.Row="13"
                     Grid.ColumnSpan="2"
                     Width="100"
                     Content="Cambiar"
                     FontSize="13"
                     Background="#CAAFB1"
                     Foreground="White"
-                     Style="{DynamicResource ButtonBack}"/>
+                     Style="{DynamicResource ButtonBack}" Click="upload"/>
+            <TextBlock Text="Usuario"
+                       Grid.Column="4"
+                       Grid.Row="15"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       />
+            <TextBox Name="tbUser"
+                     Grid.Column="5"
+                     Grid.Row="15"/>
+            <TextBlock Text="Contraseña"
+                       Grid.Column="4"
+                       Grid.Row="16"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       />
+            <TextBox Name="tbPass"
+                     Grid.Column="5"
+                     Grid.Row="16"/>
+            <TextBlock/>
+            <TextBox/>
         </Grid>
     </Border>
     
