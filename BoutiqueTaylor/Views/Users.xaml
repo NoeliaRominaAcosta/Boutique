@@ -281,7 +281,9 @@
                                             BorderBrush="Transparent"
                                             Foreground="White"
                                             Cursor="Hand"
-                                            Style="{DynamicResource ButtonSearch}"/>
+                                            Style="{DynamicResource ButtonSearch}" 
+                                            Click="Search"
+                                            CommandParameter="{Binding id_user}"/>
                                     <Button Name="btnUpdate"
                                             Content="Modificar"
                                             Background="#8D80AD"
@@ -289,7 +291,8 @@
                                             Width="80"
                                             Cursor="Hand"
                                             BorderBrush="Transparent"
-                                            Style="{DynamicResource ButtonSearch}"/>
+                                            Style="{DynamicResource ButtonSearch}"
+                                            CommandParameter="{Binding id_user}" Click="Update"/>
                                     <Button Name="btnDelete"
                                             Content="Borrar"
                                             Foreground="White"
@@ -297,7 +300,8 @@
                                             Cursor="Hand"
                                             Width="80"
                                             BorderBrush="Transparent"
-                                            Style="{DynamicResource ButtonSearch}"/>
+                                            Style="{DynamicResource ButtonSearch}"
+                                             CommandParameter="{Binding id_user}" Click="Delete"/>
                                 </DockPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

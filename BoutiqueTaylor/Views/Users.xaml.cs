@@ -33,5 +33,63 @@ namespace BoutiqueTaylor.Views
             FrameUsers.Content = ventana;
             ventana.create.Visibility = Visibility.Visible;
         }
+
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).CommandParameter;
+            CrudUsers ventana = new CrudUsers();
+            ventana.id_user = id;
+            ventana.Search();
+            FrameUsers.Content = ventana;
+            //campos no se pueden editar
+            ventana.Title.Text = "Consultando";
+            ventana.TbNames.IsEnabled = false;
+            ventana.tbPass.IsEnabled = false;
+            ventana.TbLastName.IsEnabled = false;
+            ventana.TbTypeRol.IsEnabled = false;
+            ventana.TbEmail.IsEnabled = false;
+            ventana.TbBirth.IsEnabled = false;
+            ventana.tbUser.IsEnabled = false;
+
+        }
+
+        private void Update(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).CommandParameter;
+            CrudUsers ventana = new CrudUsers();
+            ventana.id_user = id;
+            ventana.Search();
+            FrameUsers.Content = ventana;
+            //campos si se pueden editar
+            ventana.Title.Text = "Editando";
+            ventana.TbNames.IsEnabled = true;
+            ventana.tbPass.IsEnabled = true;
+            ventana.TbLastName.IsEnabled = true;
+            ventana.TbTypeRol.IsEnabled = true;
+            ventana.TbEmail.IsEnabled = true;
+            ventana.TbBirth.IsEnabled = true;
+            ventana.tbUser.IsEnabled = true;
+            ventana.update.Visibility = Visibility.Visible;
+
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).CommandParameter;
+            CrudUsers ventana = new CrudUsers();
+            ventana.id_user = id;
+            ventana.Search();
+            FrameUsers.Content = ventana;
+            //campos no se pueden editar
+            ventana.Title.Text = "Eliminar Usuario";
+            ventana.TbNames.IsEnabled = false;
+            ventana.tbPass.IsEnabled = false;
+            ventana.TbLastName.IsEnabled = false;
+            ventana.TbTypeRol.IsEnabled = false;
+            ventana.TbEmail.IsEnabled = false;
+            ventana.TbBirth.IsEnabled = false;
+            ventana.tbUser.IsEnabled = false;
+            ventana.delete.Visibility = Visibility.Visible;
+        }
     }
 }
