@@ -10,6 +10,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
         Background="Transparent"
         >
     <Window.Resources>
@@ -184,7 +185,7 @@
     </Window.Resources>
     <Border CornerRadius="10" Background="GhostWhite">
         <Grid Name="principal"
-              Background="WhiteSmoke">
+              Background="Transparent">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100*"/>
                 <ColumnDefinition Width="903*"/>
@@ -200,7 +201,7 @@
                     <RowDefinition Height="0*"/>
                 </Grid.RowDefinitions>
                 <Border 
-                   
+                   Opacity=".9"
                     Background="#CAAFB1"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -342,7 +343,7 @@
                 </Grid.RowDefinitions>
                 <Border
                     Background="#8D80AD" Grid.RowSpan="2"
-                 
+                    Opacity=".9"
                     />
                 <!--region menu-->
                 <StackPanel
@@ -544,7 +545,8 @@
                   PreviewMouseLeftButtonDown="PreviewMouseLeftButtonDownBG">
                 <Border
                     CornerRadius="0,0,0,10"
-                    Background="WhiteSmoke"/>
+                    Background="Transparent"
+                    Opacity=".9"/>
                 <ContentControl Content="{Binding}"></ContentControl>
             </Grid>
             <!--end content area -->

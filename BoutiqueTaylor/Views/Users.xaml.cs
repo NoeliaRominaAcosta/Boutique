@@ -31,6 +31,7 @@ namespace BoutiqueTaylor.Views
         {
             CrudUsers ventana= new CrudUsers();
             FrameUsers.Content = ventana;
+            content.Visibility = Visibility.Hidden;
             ventana.create.Visibility = Visibility.Visible;
         }
 
@@ -41,6 +42,8 @@ namespace BoutiqueTaylor.Views
             ventana.id_user = id;
             ventana.Search();
             FrameUsers.Content = ventana;
+            content.Visibility = Visibility.Hidden;
+
             //campos no se pueden editar
             ventana.Title.Text = "Consultando";
             ventana.TbNames.IsEnabled = false;
@@ -60,6 +63,8 @@ namespace BoutiqueTaylor.Views
             ventana.id_user = id;
             ventana.Search();
             FrameUsers.Content = ventana;
+            content.Visibility = Visibility.Hidden;
+
             //campos si se pueden editar
             ventana.Title.Text = "Editando";
             ventana.TbNames.IsEnabled = true;
@@ -79,6 +84,8 @@ namespace BoutiqueTaylor.Views
             CrudUsers ventana = new CrudUsers();
             ventana.id_user = id;
             ventana.Search();
+            content.Visibility = Visibility.Hidden;
+
             FrameUsers.Content = ventana;
             //campos no se pueden editar
             ventana.Title.Text = "Eliminar Usuario";

@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:BoutiqueTaylor.Views"
       mc:Ignorable="d" 
       d:DesignHeight="565" d:DesignWidth="925"
+      Background="Transparent"
       Title="CrudUsers">
     <Page.Resources>
         <Style x:Key="FocusVisual">
@@ -64,7 +65,7 @@
             </Setter>
         </Style>
     </Page.Resources>
-    <Border Background="WhiteSmoke"
+    <Border Background="Transparent"
             CornerRadius="10">
         <Grid>
             <!--region cols and rows-->
@@ -124,7 +125,7 @@
                     Width="100" 
                     Style="{DynamicResource ButtonBack}"
                     Click="BtnBack_Click"
-                    Visibility="Hidden"/>
+                    Visibility="Visible"/>
             <Button Name="create"
                     Content="Crear"
                     Grid.Row="17"

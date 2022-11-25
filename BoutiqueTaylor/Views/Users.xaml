@@ -178,50 +178,55 @@
     </UserControl.Resources>
 
     <Border CornerRadius="10"
-            Background="WhiteSmoke">
+            Background="Transparent">
         <Grid Name="GridUsers">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="20"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition Height="20"/>
-            </Grid.RowDefinitions>
+            <Grid Name="content"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="6"
+                  Grid.RowSpan="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
 
-            <!--end columns-->
-            <TextBlock Grid.Row="0"
+                <!--end columns-->
+                <TextBlock Grid.Row="0"
                        Grid.ColumnSpan="6"
                        Text="Mantenimiento usuarios"
                        Foreground="Black"
                        FontSize="30"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
-            <!--end title-->
-            <!--search-->
-            <TextBlock Text="Buscar usuario"
+                <!--end title-->
+                <!--search-->
+                <TextBlock Text="Buscar usuario"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
                        Grid.Column="1"
                        Grid.Row="2"
                        FontSize="15"
                        Margin="0,0,10,0"/>
-            <TextBox TextAlignment="Center"
+                <TextBox TextAlignment="Center"
                      Background="Transparent"
                      BorderBrush="#CAAFB1"
                      Grid.Column="2"
                      Grid.Row="2" Style="{DynamicResource TextBoxStyle}"/>
-            <Button Grid.Column="3"
+                <Button Grid.Column="3"
                     Grid.Row="2"
                     Background="#CAAFB1"
                     BorderBrush="#CAAFB1"
@@ -230,14 +235,14 @@
                     Width="100"
                     Name="BtnSearch"
                     HorizontalAlignment="Left" Style="{DynamicResource ButtonSearch}">
-                <TextBlock Text="Buscar"
+                    <TextBlock Text="Buscar"
                            Foreground="White"
                            FontSize="15">
 
-                </TextBlock>
-            </Button>
-            <!--create user-->
-            <Button Background="#8D80AD"
+                    </TextBlock>
+                </Button>
+                <!--create user-->
+                <Button Background="#8D80AD"
                     BorderBrush="#8D80AD"
                     Grid.Column="4"
                     Grid.Row="2"
@@ -246,14 +251,14 @@
                     Name="BtnCreateUser"
                     Style="{DynamicResource ButtonSearch}"
                     Click="BtnCreateUser_Click">
-                <TextBlock Text="Crear nuevo"
+                    <TextBlock Text="Crear nuevo"
                            Foreground="White"
                            FontSize="15"/>
-            </Button>
+                </Button>
 
-            <!--end search-->
-            <!--DATAGRID -->
-            <DataGrid Grid.Row="4"
+                <!--end search-->
+                <!--DATAGRID -->
+                <DataGrid Grid.Row="4"
                       Grid.Column="1"
                       Grid.RowSpan="2"
                       Grid.ColumnSpan="4"
@@ -268,13 +273,13 @@
                       HeadersVisibility="Column"
                       GridLinesVisibility="Horizontal"
                       HorizontalGridLinesBrush="#8D80AD" Style="{DynamicResource DataGridStyle}">
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Admin"
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Admin"
                                             Width="245">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <DockPanel>
-                                    <Button Name="btnSearch"
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Button Name="btnSearch"
                                             Content="Consultar"
                                             Background="#8D80AD"
                                             Width="80"
@@ -284,7 +289,7 @@
                                             Style="{DynamicResource ButtonSearch}" 
                                             Click="Search"
                                             CommandParameter="{Binding id_user}"/>
-                                    <Button Name="btnUpdate"
+                                        <Button Name="btnUpdate"
                                             Content="Modificar"
                                             Background="#8D80AD"
                                             Foreground="White"
@@ -293,7 +298,7 @@
                                             BorderBrush="Transparent"
                                             Style="{DynamicResource ButtonSearch}"
                                             CommandParameter="{Binding id_user}" Click="Update"/>
-                                    <Button Name="btnDelete"
+                                        <Button Name="btnDelete"
                                             Content="Borrar"
                                             Foreground="White"
                                             Background="#8D80AD"
@@ -302,28 +307,30 @@
                                             BorderBrush="Transparent"
                                             Style="{DynamicResource ButtonSearch}"
                                              CommandParameter="{Binding id_user}" Click="Delete"/>
-                                </DockPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="ID"
+                                    </DockPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="ID"
                                         Width="50"
                                         Binding="{Binding id_user}"/>
-                    <DataGridTextColumn Header="Nombre"
+                        <DataGridTextColumn Header="Nombre"
                                         Width="100"
                                          Binding="{Binding name}"/>
-                    <DataGridTextColumn Header="Apellido"
+                        <DataGridTextColumn Header="Apellido"
                                         Width="100"
                                          Binding="{Binding lastname}"/>
-                    <DataGridTextColumn Header="Email"
+                        <DataGridTextColumn Header="Email"
                                         Width="*"
                                          Binding="{Binding email}"/>
-                    <DataGridTextColumn Header="Privilegio"
+                        <DataGridTextColumn Header="Privilegio"
                                         Width="*"        
                                         Binding="{Binding userRol}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <!--END DATAGRID-->
+                    </DataGrid.Columns>
+                </DataGrid>
+                <!--END DATAGRID-->
+            </Grid>
+          
             <!--FRAME USERS-->
             <Frame Name="FrameUsers"
                    Grid.Column="0"
