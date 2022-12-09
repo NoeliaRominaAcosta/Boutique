@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System;
+using Capa_Entidad;
+using Capa_Negocio;
 namespace BoutiqueTaylor.Views
 {
     /// <summary>
@@ -15,6 +17,8 @@ namespace BoutiqueTaylor.Views
     /// </summary>
     public partial class CrudUsers : Page
     {
+        readonly CN_Users object_CN_Users = new CN_Users();
+        readonly CE_Users object_CE_Users = new CE_Users();
         public CrudUsers()
         {
             InitializeComponent();
@@ -27,7 +31,6 @@ namespace BoutiqueTaylor.Views
             //inicialization
             Content = new Users();
         }
-        readonly SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["conectionDB"].ConnectionString);
         void CargarDB()
           
         {
@@ -40,124 +43,108 @@ namespace BoutiqueTaylor.Views
             }
             con.Close();
         }
-        private void Create_Click(object sender, RoutedEventArgs e)
-        {
-            if(TbNames.Text == "" || TbLastName.Text == "" ||TbEmail.Text == "" || TbBirth.Text == "" || cbTypeRol.Text == "")
-            {
-                MessageBox.Show("Los campos no pueden estar vacíos");
-            }
-            else
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("select id_rol from Rol where userRol  = '"+cbTypeRol.Text+"'", con);
-                object valor = cmd.ExecuteScalar();
-                int rol = (int)valor;
-                string patron = "boutique";
-                if (imageUploaded == true)
-                {
-                    SqlCommand com = new SqlCommand("insert into  Users(name, lastname, email, birth, img, rol, username,password) values(@name, @lastname, @email, @birth, @img, @rol,@username,(EncryptByPassPhrase('" + patron + "','" + tbPass.Text + "')))", con);
-                    com.Parameters.Add("@name", SqlDbType.VarChar).Value = TbNames.Text;
-                    com.Parameters.Add("@lastname", SqlDbType.VarChar).Value = TbLastName.Text;
-                    com.Parameters.Add("@email", SqlDbType.VarChar).Value = TbEmail.Text;
-                    com.Parameters.Add("@birth", SqlDbType.Date).Value = TbBirth.Text;
-                    com.Parameters.Add("@rol", SqlDbType.Int).Value = rol;
-                    com.Parameters.Add("@username", SqlDbType.VarChar).Value = tbUser.Text;
-                    com.Parameters.AddWithValue("@img", SqlDbType.VarBinary).Value = data;
-                    com.ExecuteNonQuery();
-                    Content = new Users();
-                }
-                else
-                {
-                    MessageBox.Show("debes subir imagen de perfil para usuario");
-                }
-                con.Close();
-               
-            }
-        }
-
-        public int id_user;
-
-        public void Search() {
-            con.Open();
-            SqlCommand com = new SqlCommand("select * from Users inner join Rol on Users.rol = Rol.id_rol where id_user="+id_user, con);
-            SqlDataReader rdr = com.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-            rdr.Read();
-            this.TbNames.Text = rdr["name"].ToString();
-            this.TbLastName.Text = rdr["lastname"].ToString();
-            this.TbEmail.Text = rdr["email"].ToString();
-            this.cbTypeRol.SelectedItem = rdr["userRol"];
-            this.TbBirth.Text = rdr["birth"].ToString();
-            this.tbUser.Text = rdr["username"].ToString();
-            rdr.Close();
-
-            //image upload
-
-            DataSet ds = new DataSet();
-            SqlDataAdapter sda = new SqlDataAdapter("select img from Users where id_user='"+id_user+"'",con);
-            sda.Fill(ds);
-            byte[] data= (byte[])ds.Tables[0].Rows[0][0];
-            //uses RAM memory as backup storage instead of hard drive or network.
-            MemoryStream ms = new MemoryStream();
-            ms.Write(data, 0, data.Length);
-            ms.Position =0;
-            //convert from binary to see the image
-            System.Drawing.Image img = System.Drawing.Image.FromStream(ms);
-            BitmapImage bmi = new BitmapImage();
-            bmi.BeginInit();
-            MemoryStream mst = new MemoryStream();
-            img.Save(mst, System.Drawing.Imaging.ImageFormat.Bmp);
-            mst.Seek(0, SeekOrigin.Begin);
-            bmi.StreamSource = mst;
-            bmi.EndInit();
-            image.Source = bmi;
-            con.Close();
-
-        }
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-            con.Open();
-            SqlCommand cmdDelete = new SqlCommand("delete from users where id_user  = '" + id_user + "'", con);
-            cmdDelete.ExecuteScalar();
-            con.Close();
-            Content = new Users();
-        }
-
-        private void Update_Click(object sender, RoutedEventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select id_rol from Rol where userRol  = '" + cbTypeRol.Text + "'", con);
-            object valor = cmd.ExecuteScalar();
-            int id_rol = (int)valor;
-            //save on variable the id_rol for  WHERE statement
-            string patron = "boutique";
+        public bool validate() {
             if (TbNames.Text == "" || TbLastName.Text == "" || TbEmail.Text == "" || TbBirth.Text == "" || cbTypeRol.Text == "")
             {
-                MessageBox.Show("Los campos no pueden estar vacíos");
+                return false;
             }
-            else
+            else {
+                return true;
+            }
+        }
+        public int id_user;
+        public string patron = "boutique";
+        #region create
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            if (validate() == true && tbPass.Text != "")
             {
-                SqlCommand comd = new SqlCommand("update Users set name='" + TbNames.Text + "',lastname='" + TbLastName.Text + "', email='" + TbEmail.Text + "', birth='" + DateTime.Parse(TbBirth.Text) + "', username='" + cbTypeRol.Text + "',rol='" + id_rol + "' where id_user = '" + id_user + "'", con);
-                comd.ExecuteNonQuery();
+                int Rol = 0;
+                object_CE_Users.Name = TbNames.Text;
+                object_CE_Users.Lastname = TbLastName.Text;
+                object_CE_Users.Email = TbEmail.Text;
+                object_CE_Users.Birth = DateTime.Parse(TbBirth.Text );
+                object_CE_Users.Rol = Rol;
+                object_CE_Users.UserName = tbUser.Text;
+                object_CE_Users.Img =data;
+                object_CE_Users.Password = tbPass.Text;
+                object_CE_Users.Patron = patron;
 
-                if (imageUploaded == true)
-                {
-                    SqlCommand img = new SqlCommand("update  Users set img = @img where id_user='" + id_user + "'", con);
-                    img.Parameters.AddWithValue("@img", SqlDbType.VarBinary).Value = data;
-                    img.ExecuteNonQuery();
-                }
-               
+                object_CN_Users.Add(object_CE_Users);
+                Content = new Users();
             }
-           //little validation password not null
-              if(tbPass.Text != "")
-            {
-                SqlCommand cmdPass = new SqlCommand("update users set password = (EncryptByPassPhrase('" + patron + "', '" + tbPass.Text + "')) where id_user='" + id_user + "'", con);
-                cmdPass.ExecuteNonQuery();
+            else {
+                MessageBox.Show("Los campos deben llenarse");
             }
-            con.Close();
+        }
+        #endregion
+        #region search
+        public void Search() {
+            var a = object_CN_Users.Search(id_user);
+            TbNames.Text = a.Name;
+            TbLastName.Text = a.Lastname;
+            TbEmail.Text = a.Email;
+            TbBirth.Text = a.Birth.ToString();
+            TbTypeRol.Text = a.Rol.ToString();
+            cbTypeRol.Text = "";
+
+            ImageSourceConverter img = new ImageSourceConverter();
+            image.Source = (ImageSource)img.ConvertFrom(a.Img);
+            tbUser.Text = a.UserName;
+
+
+        }
+        #endregion
+        #region delete
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            object_CE_Users.Id_user = id_user;
+            object_CN_Users.Delete(object_CE_Users);
             Content = new Users();
         }
+        #endregion
+        #region update
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            if (validate() == true)
+            {
+                int Rol = 0;
+                object_CE_Users.Id_user = id_user;
+                object_CE_Users.Name = TbNames.Text;
+                object_CE_Users.Lastname = TbLastName.Text;
+                object_CE_Users.Email = TbEmail.Text;
+                object_CE_Users.Birth = DateTime.Parse(TbBirth.Text);
+                object_CE_Users.Rol = Rol;
+                object_CE_Users.UserName = tbUser.Text;
+
+                object_CN_Users.update(object_CE_Users);
+                Content = new Users();
+
+
+            }
+            else {
+                MessageBox.Show("Los campos deben llenarse");
+            }
+            if (tbPass.Text != "") {
+                object_CE_Users.Id_user = id_user;
+                object_CE_Users.Password = tbPass.Text;
+                object_CE_Users.Patron = patron;
+
+                object_CN_Users.updatePassword(object_CE_Users);
+                Content = new Users();
+            }
+
+            if (imageUploaded == true) {
+                object_CE_Users.Id_user = id_user;
+                object_CE_Users.Img = data;
+                object_CN_Users.updateIMG(object_CE_Users);
+                Content = new Users();
+            }
+        }
+        #endregion
         byte[] data;
         private bool imageUploaded = false;
+        #region update picture
         private void upload(object sender, RoutedEventArgs e)
         {
             //show image selected and convert to binary
@@ -173,5 +160,6 @@ namespace BoutiqueTaylor.Views
             }
             imageUploaded = true;
         }
+        #endregion
     }
 }

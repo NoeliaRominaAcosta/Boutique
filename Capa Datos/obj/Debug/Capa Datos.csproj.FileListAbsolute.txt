@@ -1,0 +1,9 @@
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\bin\Debug\Capa Datos.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\bin\Debug\Capa Datos.pdb
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\bin\Debug\Capa Entidad.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\bin\Debug\Capa Entidad.pdb
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\obj\Debug\Capa Datos.csprojAssemblyReference.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\obj\Debug\Capa Datos.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\obj\Debug\Capa Datos.csproj.CopyComplete
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\obj\Debug\Capa Datos.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Datos\obj\Debug\Capa Datos.pdb

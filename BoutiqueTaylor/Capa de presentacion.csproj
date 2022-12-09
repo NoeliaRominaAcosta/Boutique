@@ -147,5 +147,15 @@
   <ItemGroup>
     <Resource Include="SCS\IMG\avatarPng.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa Entidad\Capa Entidad.csproj">
+      <Project>{98ad7f65-66b8-4f95-be49-71160d578066}</Project>
+      <Name>Capa Entidad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa Negocio\Capa Negocio.csproj">
+      <Project>{7091c5a2-3659-430e-9138-fae1179458cf}</Project>
+      <Name>Capa Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,6 @@
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\bin\Debug\Capa Entidad.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\bin\Debug\Capa Entidad.pdb
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\obj\Debug\Capa Entidad.csprojAssemblyReference.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\obj\Debug\Capa Entidad.csproj.CoreCompileInputs.cache
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\obj\Debug\Capa Entidad.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\Capa Entidad\obj\Debug\Capa Entidad.pdb
