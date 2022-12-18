@@ -23,3 +23,5 @@ C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\BoutiqueTa
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Capa de presentacion.csproj.GenerateResource.cache
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Capa de presentacion.csproj.CoreCompileInputs.cache
 C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\obj\Debug\Capa de presentacion.csproj.CopyComplete
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\bin\Debug\Capa Datos.dll
+C:\Users\usuario\source\repos\BoutiqueTaylor\BoutiqueTaylor\bin\Debug\Capa Datos.pdb

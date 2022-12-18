@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System;
 using Capa_Entidad;
 using Capa_Negocio;
+using System.Collections.Generic;
+
 namespace BoutiqueTaylor.Views
 {
     /// <summary>
@@ -19,6 +21,7 @@ namespace BoutiqueTaylor.Views
     {
         readonly CN_Users object_CN_Users = new CN_Users();
         readonly CE_Users object_CE_Users = new CE_Users();
+        readonly CN_Privilegie object_CN_Privilegie = new CN_Privilegie();
         public CrudUsers()
         {
             InitializeComponent();
@@ -34,14 +37,11 @@ namespace BoutiqueTaylor.Views
         void CargarDB()
           
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select userRol from Rol",con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
+            List<string> privilegie = object_CN_Privilegie.searchPrivilegie();
+            for (int i= 0; i<privilegie.Count; i++)
             {
-                cbTypeRol.Items.Add(dr["userRol"].ToString());
+                cbTypeRol.Items.Add(privilegie[i]);
             }
-            con.Close();
         }
         public bool validate() {
             if (TbNames.Text == "" || TbLastName.Text == "" || TbEmail.Text == "" || TbBirth.Text == "" || cbTypeRol.Text == "")
@@ -59,7 +59,7 @@ namespace BoutiqueTaylor.Views
         {
             if (validate() == true && tbPass.Text != "")
             {
-                int Rol = 0;
+                int Rol = object_CN_Privilegie.id_rol(cbTypeRol.Text);
                 object_CE_Users.Name = TbNames.Text;
                 object_CE_Users.Lastname = TbLastName.Text;
                 object_CE_Users.Email = TbEmail.Text;
@@ -86,7 +86,8 @@ namespace BoutiqueTaylor.Views
             TbEmail.Text = a.Email;
             TbBirth.Text = a.Birth.ToString();
             TbTypeRol.Text = a.Rol.ToString();
-            cbTypeRol.Text = "";
+            var b = object_CN_Privilegie.userRol(a.Rol);
+            cbTypeRol.Text = b.UserRol;
 
             ImageSourceConverter img = new ImageSourceConverter();
             image.Source = (ImageSource)img.ConvertFrom(a.Img);
@@ -108,7 +109,7 @@ namespace BoutiqueTaylor.Views
         {
             if (validate() == true)
             {
-                int Rol = 0;
+                int Rol = object_CN_Privilegie.id_rol(cbTypeRol.Text);
                 object_CE_Users.Id_user = id_user;
                 object_CE_Users.Name = TbNames.Text;
                 object_CE_Users.Lastname = TbLastName.Text;

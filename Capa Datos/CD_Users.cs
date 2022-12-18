@@ -59,6 +59,8 @@ namespace Capa_datos
             ce.Birth = Convert.ToDateTime(row[4]);
             ce.Rol = Convert.ToInt32(row[5]);
             ce.Img = (byte[])row[6];
+            ce.UserName = Convert.ToString(row[7]);
+            
             return ce;
 
         }
@@ -86,6 +88,7 @@ namespace Capa_datos
                 CommandType = CommandType.StoredProcedure
 
             };
+            com.Parameters.AddWithValue("@id_user", users.Id_user);
             com.Parameters.AddWithValue("@Name", users.Name);
             com.Parameters.AddWithValue("@lastname", users.Lastname);
             com.Parameters.AddWithValue("@email", users.Email);
@@ -137,5 +140,17 @@ namespace Capa_datos
         }
         #endregion
 
+        public DataTable SearchUsers()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SP_U_Users",con.Open());
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DataSet ds = new DataSet();
+            ds.Clear();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            con.Close();
+            return dt;
+
+        }
     }
 }

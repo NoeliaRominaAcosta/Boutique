@@ -45,5 +45,10 @@ namespace Capa_Negocio
             objData.CD_UpdateIMG(users);
         }
         #endregion
+
+        public DataTable SearchUsers()
+        {
+            return objData.SearchUsers();
+        }
     }
 }
